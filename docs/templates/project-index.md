@@ -25,7 +25,7 @@ YouTube / Telegram / Instagram  →  {SCRIPTS_DIR}  →  Inbox/*.md (RAW)
 | Composant | Chemin |
 |-----------|--------|
 | Scripts | `{SCRIPTS_DIR}` |
-| Repo | https://github.com/Zoomma1/gylt-ingest |
+| Repo | https://github.com/BonelliNathan/gylt-ingest |
 | RAW | `{SCRIPTS_DIR}/Inbox/` |
 | Skill | `{AGENT_FOLDER}/Skills/today.md` |
 

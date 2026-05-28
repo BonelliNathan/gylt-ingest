@@ -38,7 +38,7 @@ Telegram chat    ──► telegram_fetch_links  ──► instagram_links.txt
 # 1. Cloner dans le vault (ou chemin choisi)
 VAULT_PATH="${VAULT_PATH:-$(pwd)}"
 SCRIPTS_DIR="${SCRIPTS_DIR:-$VAULT_PATH/10 - Scripts}"
-git clone https://github.com/Zoomma1/gylt-ingest.git "$SCRIPTS_DIR"
+git clone https://github.com/BonelliNathan/gylt-ingest.git "$SCRIPTS_DIR"
 
 # 2. Setup Python + dossiers inbox
 cd "$SCRIPTS_DIR"
@@ -194,4 +194,4 @@ MIT — voir [LICENSE](LICENSE).
 
 ## Origine
 
-Extrait du vault [get-your-life-together](https://github.com/Zoomma1/get-your-life-together) (projet GYLT).
+Extrait du vault [get-your-life-together](https://github.com/Zoomma1/get-your-life-together) (projet GYLT). Repo ingestion : https://github.com/BonelliNathan/gylt-ingest

@@ -29,4 +29,4 @@
 
 ## Repo
 
-https://github.com/Zoomma1/gylt-ingest
+https://github.com/BonelliNathan/gylt-ingest
