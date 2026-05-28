@@ -1,4 +1,4 @@
-# GYLT Ingest
+#  youtube-reel-to-obsidian | Ingest media knowledge to Obsidian Vault
 
 Pipeline **Python gratuit** (sans IA) pour alimenter un second cerveau Obsidian depuis **YouTube**, **Instagram** et **Telegram**.
 
