@@ -1,0 +1,53 @@
+---
+description: Pipeline ingestion YouTube/Instagram/Telegram → notes RAW Obsidian. Déclenché par /today Step 0.5 et traitement Step 2.15.
+globs:
+alwaysApply: false
+---
+
+# GYLT Ingest — Rules agent
+
+## Chemins (adapter si vault custom)
+
+| Élément | Chemin |
+|---------|--------|
+| Vault | `{VAULT_PATH}` |
+| Scripts | `{SCRIPTS_DIR}` |
+| RAW YouTube | `{SCRIPTS_DIR}/Inbox/Youtube/` |
+| RAW Instagram | `{SCRIPTS_DIR}/Inbox/Instagram/` |
+| Archive | `{SCRIPTS_DIR}/Inbox/_archived/` |
+| Knowledge | `{KNOWLEDGE_DIR}/` |
+
+## Step 0.5 — Lancer l'ingestion (non-bloquant)
+
+```bash
+cd "{SCRIPTS_DIR}" && ./run_ingest.sh
+```
+
+- Si `venv/` absent → `./setup.sh` puis relancer
+- Si échec Telegram sans `.env` → continuer (YouTube/Insta manuel OK)
+- Ne jamais bloquer le plan du jour pour un échec ingestion
+
+## Step 2.15 — Traiter TOUTES les notes RAW
+
+Scanner `{SCRIPTS_DIR}/Inbox/Youtube/*.md` et `Inbox/Instagram/*.md` avec `status: raw`.
+
+**Règle absolue** : traiter **toutes** les notes RAW — pas de report au lendemain.
+
+Pour chaque note :
+
+1. Identifier 2–5 sujets dans le transcript
+2. `WebSearch` sur chaque sujet (source fiable, pas le transcript seul)
+3. Remplir `## AI Processing`, `## Related Concepts`, `## Actionable Ideas`
+4. Créer 1 note Knowledge par idée dans `{KNOWLEDGE_DIR}/{domaine}/`
+5. Mettre à jour `{KNOWLEDGE_DIR}/INDEX.md` section `## Cas d'usage — index rapide`
+6. Archiver vers `Inbox/_archived/YYYY-MM-DD/` et `status: processed`
+
+## Sécurité
+
+- Credentials Telegram **uniquement** dans `{SCRIPTS_DIR}/.env` local
+- Jamais de clés API dans le vault Obsidian
+
+## Liens
+
+- Setup : `{SCRIPTS_DIR}/README.md`
+- Repo : https://github.com/Zoomma1/gylt-ingest
